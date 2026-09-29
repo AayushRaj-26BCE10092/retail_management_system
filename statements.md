@@ -1,222 +1,137 @@
 # Project Statements
-
-## Project Title
-
-**Retail Management System**
-
+## Project title
+**Retail Management System** 
 ---
-
-## Project Overview
-
-This is a console-based Retail Management System that I built in Python.
-
-The idea was to recreate the day-to-day running of a small retail store: keeping track of inventory, billing customers, and logging money coming in and going out.
-
-Instead of a database, everything is saved in **plain text files**, so the data sticks around even after the program closes.
-
+## Project description
+This is the console based Retail Management System that I have developed in Python. 
+The aim was to simulate the normal working of a small shop ie. maintaining the inventory, making bills for customers and keeping track of the flow of money.
+Instead of a database, I have made use of **plain text files** and so the data is always persistent even if the program is terminated. 
 ---
-
-## Why I Built It
-
-I wanted to use Python to solve a practical, real-world problem. Rather than practising each concept in isolation, I brought them all together into one working system.
-
-Here's what I set out to do:
-
-- Manage the store's inventory
-- Keep track of how much of each item is available
-- Search for products
-- Spot products that are running low on stock
-- Add new products to the inventory
-- Process customer purchases
-- Calculate bills
-- Update the inventory after every sale
-- Keep credit and debit records
-- Record the time of every transaction
-- Show information in neat, formatted tables
-
+## Why I created this
+I wanted to apply Python for solving a real life problem and instead of developing each concept on its own, I just linked them together. 
+What I wanted to develop in this project:
+- Manage inventory for the shop
+- Keep track of the quantity of each item
+- Search for particular items in the inventory
+- Find out items that are low on stock
+- Add new items to the inventory
+- Make bills for customers
+- Generate bills
+- Update the inventory when a bill is generated
+- Make debit and credit entries
+- Timestamp all transactions
+- Simulate tables with appropriate formatting for display
 ---
-
-## Main Components
-
-The system is split into three main sections.
-
-### Inventory Management
-
-With the inventory section, you can:
-
-- View the complete inventory
-- Search for a particular item
-- See which items have stock below 10
-- Add brand-new inventory
-- Increase the quantity of an item that already exists
-- Record inventory purchases in the debit log
-
+## Major components
+The program has three major components.
+### Inventory module
+This module allows you 
+- to view all items present in the shop 
+- to search for any particular item
+- to view items with low stock level
+- Add new inventory
+- Raise quantity of an item already present
+- Log purchases to debit log
 ---
-
-### Billing System
-
-With the billing section, you can:
-
-- Enter the customer's information
-- Enter as many purchased items as needed
-- Check whether each product is available
-- Deduct the purchased quantities from inventory
-- Work out the total for each item
-- Calculate the final bill
-- Display a receipt
-- Record the transaction in the credit log
-
+### Billing system
+Inside the billing part you can:
+- Enter the customer details
+- Enter as many items as you want
+- Check that each item is present
+- Decrease purchased amount from inventory
+- Calculation of individual items
+- Calculation of total bill
+- Print the bill
+- Log the bill to the credit log
 ---
-
-### Accounts System
-
-The accounts section lets you look at:
-
-- Credit transaction records
-- Debit transaction records
-
-Every transaction is saved with a timestamp.
-
+### Accounts system
+Inside the accounts part you can review:
+- Credit logs
+- Debit logs
+All of these logs get timestamped every time there is a transaction.
 ---
-
-# How Data Is Stored
-
-The project relies on three text files to keep its data.
-
+# How data is stored
+The source code uses 3 files to store the data.
 ### `invetory.txt`
-
-This file holds product names and how many of each we have.
-
+Here all the products names and quantities are stored.
 Format:
-
 ```text
 item,quantity
 ```
-
 Example:
-
 ```text
 Mango,5
 Rajma,50
 Rice,25
 ```
-
 ---
-
 ### `credits.txt`
-
-This file holds sales made to customers.
-
+Here all the sales that are done are logged.
 Format:
-
 ```text
 customer,amount,timestamp
 ```
-
 Example:
-
 ```text
 Aayush,Rs.650,[22:7-28/9/2026]
 ```
-
 ---
-
 ### `debits.txt`
-
-This file holds purchases made to restock the inventory.
-
+Here all purchases that are done to restock inventory are logged.
 Format:
-
 ```text
 item,quantity,amount,timestamp
 ```
-
 Example:
-
 ```text
 Mango,5,Rs.1125,[21:40-28/9/2026]
 ```
-
 ---
-
-# Python Concepts I Used
-
-This project puts a number of Python concepts into practice.
-
-### Variables and Data Types
-
-The program works with strings, integers, lists, dictionaries, and tuples.
-
+# Python concepts used
+The source code uses several/python concepts.
+Variables and data types
+The program extracts from and inserts into strings/integer/lists/dictionaries/tuples.
 ---
-
-### Conditional Statements
-
-The main menu and each operation use `if`, `elif`, and `else` to decide what the program should do next.
-
+Control flow statements
+The main menu and all operations are if/elif/else based to decide what next.
 ---
-
-### Loops
-
-The billing system uses a `while` loop so that several products can be added to a single bill.
-
+Loops
+From the billing program I use a while loop to bill for multiple products at a time.
 ---
-
-### Functions
-
-I pulled reusable operations out into functions. Two examples are:
-
+Functions
+I perform a number of operations in functions. For instance:
 ```python
 timestamp()
 ```
-
 and:
-
 ```python
 tabular()
 ```
-
 ---
-
-### Modules
-
-Reusable functionality lives in its own Python files:
-
+Modules
+I seperate common code into its own Python modules:
 ```text
 timestamp.py
 tabuler.py
 ```
-
-This is my way of practising basic modular programming.
-
+To practice simple modular programming.
 ---
-
-### Dictionaries
-
-Inventory data is represented with dictionaries.
-
-Example:
-
+Dictionaries
+Inventory is held in a dictionary.
+For example:
 ```python
 {
-    "Mango": "5",
-    "Rajma": "50"
+"Mango": "5",
+"Rajma": "50"
 }
 ```
-
-This makes it easy to look up products and update their quantities quickly.
-
+I get very fast product lookup and simple quantity and details update.
 ---
-
-### Lists
-
-Lists hold the billing information and transaction records before they are shown on screen or written to files.
-
+Lists
+Billing details/ transaction records are held in lists before printing on screen or writing to external files.
 ---
-
-### File Handling
-
-File handling is used heavily throughout the project. The operations involved include:
-
+File handling
+There are many file handling operations in this program. These are:
 ```python
 open()
 read()
@@ -224,156 +139,105 @@ write()
 seek()
 truncate()
 ```
-
-Thanks to this, information is still there after the program ends.
-
+So the information exists after the program has ended.
 ---
-
-### F-Strings
-
-F-strings help me format output and build the records that get written to files.
-
-Example:
+F-strings
+I use F-strings to make my file records:
+```python
+The code to read/write to file is:
 
 ```python
+with open("file.txt",".") as f:
+    items,values = f.readline().split(",")
+    
+# ...
+    
 f.write(f"{items},{values}\n")
 ```
-
 ---
-
-### Dictionary Comprehension
-
-The low-stock list is built with a dictionary comprehension:
-
+The list is created with a dictionary comprehension
 ```python
 x = {x:y for x,y in d.items() if int(y) < 10}
 ```
-
-This filters the inventory down to items based on their quantity.
-
+so that it only contains items on stock level.
 ---
-
 ### External Library
+The `tabulate` Python package is used to print tabulated.
 
-To show inventory and billing details in clean, formatted tables, the project uses the `tabulate` Python package.
-
+inventory and billing details.
 ---
-
-# Design Approach
-
-I deliberately stuck to fundamental Python instead of reaching for object-oriented programming or databases.
-
-The aim was to show that I understand the following progression:
+# Design Thinking
+I am consciously avoiding object-oriented programming or databases.
+I am trying to demonstrate that I understand the following:
 
 ```text
-Python Fundamentals
-       ↓
+Python Basics
+↓
 Functions
-       ↓
+↓
 Modules
-       ↓
-Lists & Dictionaries
-       ↓
+↓
+Lists/Dicts
+↓
 File Handling
-       ↓
+↓
 Data Processing
-       ↓
-Practical Application
+↓
+Application
 ```
-
-Keeping things simple makes the code easier to follow, while still giving me a functional retail management system.
-
+It is faster, less complex and easier to read code.
+Still I am able to have a functional system and not just a script.
 ---
-
-# Current Scope
-
-Right now, this is mainly an educational console application.
-
-It works well for demonstrating:
-
-- Basic inventory management
-- Basic billing
-- Saving data in files so it persists
-- Simple financial records
-- Modular Python programming
-
-It isn't meant to replace a production-level retail management or accounting system.
-
+# Current Capability
+Now, it is an educational application, well suited for:
+- Learning basic billing
+- Learning basic inventory
+- Data persistence using files
+- Basic financials
+- Functional module based Python programming
+It is not a production retail management and accounting system.
 ---
-
-# Current Limitations
-
-The current version has a few limitations worth being upfront about.
-
+# Current Limitation
+I am being subtle about the shortcomings of the current application.
 ### Input Validation
-
-The program assumes the user will enter data in the expected format. If they don't, Python exceptions may occur.
-
-### Text-Based Storage
-
-Data lives in plain text files instead of a proper database.
-
-### Authentication
-
-There's no user authentication or access control yet.
-
-### Product Pricing
-
-Prices are entered while billing and while adding inventory, but they aren't saved permanently alongside the inventory quantity.
-
+The program does not check for input compliance and will work only if the user indicates correct input format, else Python exceptions may occur.
+### Text Storage
+Data is in plain text files not in a database.
+User authentication and access control has not been implemented yet.
+### Price 
+It is entered when dealing with inventory and when billing a customer it is entered at sales time but not even stored with inventory quantity.
 ### Customer Records
-
-A customer's mobile number is shown during billing, but it isn't saved in the credit log.
-
+You're customer’s phone number is entered at sales time but paypal will not be entered in to the credit log
 ---
-
-# Future Development
-
-Here are some improvements I could make down the line:
-
-- Input validation
-- Exception handling
-- Automatic creation of missing files
-- Storing product prices
+# Future Improvements
+Some changes and features which I might add:
+- Validating input
+- Appropriate exception handling
+- Auto creating missing file
+- Price of product
 - Product categories
 - Customer records
-- Authentication
-- User roles
-- Invoice numbers
-- Sales reports
-- Profit calculation
-- A better transaction history
-- SQLite database support
-- A graphical user interface
-
+- User authentication
+- Different user roles
+- Account number
+- Sales Report
+- Profit
+- Better transaction log
+- Support for SQLite Database
+- GUI
 ---
-
-# Development Statement
-
-I built this project as a hands-on way to apply what I've learned in Python.
-
-My focus was on understanding how individual programming concepts can be combined into one complete, working application.
-
-As I learn more advanced Python concepts, I can keep expanding the project.
-
+# My Statement
+I am developing this project to practice and try what I have learned of Python.
+I particularly wanted to know how all the concepts worked together to create one working application in which I can use them.
+With the knowledge gained of more concepts, I can add more to this project.
 ---
-
-## Author
-
+## Developer
 **Aayush**
-
-### Project Type
-
-Educational / Personal Python Project
-
-### Technology
-
+### Project Category
+Academic / Personal Python Project 
+### Technology Stack
 **Python**
-
-### Storage
-
-**Plain Text Files**
-
-### Interface
-
-**Console / Command Line**
+### Data Storage
+**Plain text files**
+### User Interface
+**Command Line / console
