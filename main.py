@@ -47,13 +47,12 @@ if p.isnumeric():
         else:
             pr("[bold italic red]Invalid input")
     elif int(p)==2:
-        print("BILLING SYSTEM INITIATED")
+        print("[bold italic green]BILLING SYSTEM INITIATED")
         name=input("enter the customers name:")
         mobile_no=input("enter the customers mobile no:")
         l=[]
         while True:
             items=input("Enter the items as [itme_name],[quanitity],[price]\n or enter 1 to exit:").split(",")
-            print(items)
             file=open("invetory.txt","a+")
             file.seek(0)
             d={}
@@ -66,15 +65,14 @@ if p.isnumeric():
             if items==["1"]:
                     break
             elif items[0] not in d:
-                print("Item out of stock")
+                pr("[bold italic red]Item out of stock")
             else:
                 x=int(d[items[0]])
                 y=int(items[1])
                 if x>y:
                     d[items[0]]=str(x-y)
                 else:
-                    print("Less item in stock")
-                print(d)
+                    pr("[bold italic red]Less item in stock")
                 file.seek(0)
                 file.truncate()
                 for item,values in d.items():
@@ -82,14 +80,14 @@ if p.isnumeric():
                 total=int(items[1])*int(items[2])
                 items.append(total)
                 l.append(items)
-            print("RECEIT")
-            print(f"Name:{name}")
-            print(f"mobile no:{mobile_no}")
+            pr("[bold italic green]RECEIT")
+            pr(f"[bold italic cyan]Name:{name}")
+            pr(f"[bold italic cyan]mobile no:{mobile_no}")
             tabular(["item","quantity","price","total"],*l)
             sum=0
             for items in l:
                 sum=sum+items[3]
-            print(f"Total amount to pay:{sum}")
+            pr(f"[bold italic green]Total amount to pay:{sum}")
             with open("credits.txt","a+") as cred_file:
                 cred_file.write(f"{name},Rs.{sum},{timestamp()}\n")
     elif int(p)==3:
@@ -104,6 +102,7 @@ if p.isnumeric():
                     for items in data:
                         a=list(items.split(","))
                         d.append(a)
+                    pr("[bold italic green]CREDITS:")
                     tabular(["Name","Amount","Date"],*d)
             elif int(a)==2:
                 with open("debits.txt","r") as file:
@@ -114,9 +113,10 @@ if p.isnumeric():
                     for items in data:
                         a=list(items.split(","))
                         d.append(a)
+                    pr("[bold italic red]DEBITS")
                     tabular(["Name","Quantity","Amount","Date"],*d)
             else:
-                print("Invalid input")
+                pr("[bold italic red]Invalid input")
         else:
             pr("[bold italic red]Invalid input")          
 else:
