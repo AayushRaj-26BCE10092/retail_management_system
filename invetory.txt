@@ -1,3 +1,0 @@
-Rajma,20
-Mango,15
-Garlic,5
